@@ -1,7 +1,7 @@
 package plp.imperative2.memory;
 
-import plp.expressions2.expression.Id;
-import plp.expressions2.memory.IdentificadorJaDeclaradoException;
+import plp.imperativeExtendedI18N.expression.Id;
+import plp.imperativeExtendedI18N.memory.IdentificadorJaDeclaradoException;
 
 public class ProcedimentoJaDeclaradoException extends
 		IdentificadorJaDeclaradoException {

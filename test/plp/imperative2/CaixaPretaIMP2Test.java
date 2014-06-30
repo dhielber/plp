@@ -15,14 +15,14 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 import plp.UtilCaixaPreta;
-import plp.expressions2.expression.ValorBooleano;
-import plp.expressions2.expression.ValorInteiro;
-import plp.imperative1.memory.AmbienteCompilacaoImperativa;
-import plp.imperative1.memory.ContextoCompilacaoImperativa;
 import plp.imperative2.memory.AmbienteExecucaoImperativa2;
 import plp.imperative2.memory.ContextoExecucaoImperativa2;
-import plp.imperative1.memory.ListaValor;
 import plp.imperative2.parser.Imp2Parser;
+import plp.imperativeExtendedI18N.expression.ValorBooleano;
+import plp.imperativeExtendedI18N.expression.ValorInteiro;
+import plp.imperativeExtendedI18N.memory.AmbienteCompilacaoImperativa;
+import plp.imperativeExtendedI18N.memory.ContextoCompilacaoImperativa;
+import plp.imperativeExtendedI18N.memory.ListaValor;
 
 
 @RunWith(Parameterized.class)

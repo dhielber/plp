@@ -15,20 +15,21 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 import plp.UtilCaixaPreta;
-import plp.expressions2.expression.ValorBooleano;
-import plp.expressions2.expression.ValorInteiro;
-import plp.imperative1.memory.AmbienteCompilacaoImperativa;
-import plp.imperative1.memory.AmbienteExecucaoImperativa;
-import plp.imperative1.memory.ContextoCompilacaoImperativa;
-import plp.imperative1.memory.ContextoExecucaoImperativa;
-import plp.imperative1.memory.ListaValor;
-import plp.imperative1.parser.Imp1Parser;
+import plp.imperativeExtendedI18N.Programa;
+import plp.imperativeExtendedI18N.expression.ValorBooleano;
+import plp.imperativeExtendedI18N.expression.ValorInteiro;
+import plp.imperativeExtendedI18N.memory.AmbienteCompilacaoImperativa;
+import plp.imperativeExtendedI18N.memory.AmbienteExecucaoImperativa;
+import plp.imperativeExtendedI18N.memory.ContextoCompilacaoImperativa;
+import plp.imperativeExtendedI18N.memory.ContextoExecucaoImperativa;
+import plp.imperativeExtendedI18N.memory.ListaValor;
+import plp.imperativeExtendedI18N.parser.ImperativeExtendedI18NParser;
 
 
 @RunWith(Parameterized.class)
 public class CaixaPretaIMP1Test {
 
-	static Imp1Parser parser;
+	static ImperativeExtendedI18NParser parser;
 	String input;
 	private String resultado;
 	private boolean aceitoTipo;
@@ -49,12 +50,12 @@ public class CaixaPretaIMP1Test {
 
 	@Before
 	public void setup() {
-		Imp1Parser.disable_tracing();
+		ImperativeExtendedI18NParser.disable_tracing();
 		ByteArrayInputStream bis = new ByteArrayInputStream(input.getBytes());
 		if (parser == null)
-			parser = new Imp1Parser(bis);
+			parser = new ImperativeExtendedI18NParser(bis);
 		else
-			Imp1Parser.ReInit(bis);
+			ImperativeExtendedI18NParser.ReInit(bis);
 
 	}
 
@@ -64,7 +65,7 @@ public class CaixaPretaIMP1Test {
 		try{
 			AmbienteCompilacaoImperativa ambComp = new ContextoCompilacaoImperativa(
 					entrada);
-			Programa programa = Imp1Parser.Input();   
+			Programa programa = ImperativeExtendedI18NParser.Input();   
 			boolean tipoOK = programa.checaTipo(ambComp);
 
 			assertThat("Erro de Tipo no programa: \n" + input,

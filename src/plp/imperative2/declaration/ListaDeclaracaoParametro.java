@@ -3,11 +3,11 @@ package plp.imperative2.declaration;
 import java.util.ArrayList;
 import java.util.List;
 
-import plp.expressions1.util.Tipo;
-import plp.expressions2.memory.VariavelJaDeclaradaException;
-import plp.expressions2.memory.VariavelNaoDeclaradaException;
-import plp.imperative1.memory.AmbienteCompilacaoImperativa;
-import plp.imperative1.util.Lista;
+import plp.imperativeExtendedI18N.memory.AmbienteCompilacaoImperativa;
+import plp.imperativeExtendedI18N.memory.VariavelJaDeclaradaException;
+import plp.imperativeExtendedI18N.memory.VariavelNaoDeclaradaException;
+import plp.imperativeExtendedI18N.util.Lista;
+import plp.imperativeExtendedI18N.util.Tipo;
 
 public class ListaDeclaracaoParametro extends Lista<DeclaracaoParametro> {
 

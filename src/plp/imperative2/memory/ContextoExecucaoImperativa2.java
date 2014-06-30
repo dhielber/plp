@@ -1,12 +1,12 @@
 package plp.imperative2.memory;
 
-import plp.expressions2.expression.Id;
-import plp.expressions2.memory.Contexto;
-import plp.expressions2.memory.VariavelJaDeclaradaException;
-import plp.expressions2.memory.VariavelNaoDeclaradaException;
-import plp.imperative1.memory.ContextoExecucaoImperativa;
-import plp.imperative1.memory.ListaValor;
 import plp.imperative2.declaration.DefProcedimento;
+import plp.imperativeExtendedI18N.expression.Id;
+import plp.imperativeExtendedI18N.memory.Contexto;
+import plp.imperativeExtendedI18N.memory.ContextoExecucaoImperativa;
+import plp.imperativeExtendedI18N.memory.ListaValor;
+import plp.imperativeExtendedI18N.memory.VariavelJaDeclaradaException;
+import plp.imperativeExtendedI18N.memory.VariavelNaoDeclaradaException;
 
 public class ContextoExecucaoImperativa2 extends ContextoExecucaoImperativa
 		implements AmbienteExecucaoImperativa2 {

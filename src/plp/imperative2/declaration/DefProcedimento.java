@@ -1,8 +1,8 @@
 package plp.imperative2.declaration;
 
-import plp.expressions1.util.Tipo;
-import plp.imperative1.command.Comando;
 import plp.imperative2.util.TipoProcedimento;
+import plp.imperativeExtendedI18N.command.Comando;
+import plp.imperativeExtendedI18N.util.Tipo;
 
 /**
  * Uma definiçao de procedimento é uma declaraçao de comando e parametrosFormais

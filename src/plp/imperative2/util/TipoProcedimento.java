@@ -1,11 +1,10 @@
 package plp.imperative2.util;
 
-import static plp.expressions1.util.ToStringProvider.listToString;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import plp.expressions1.util.Tipo;
+import plp.imperativeExtendedI18N.util.Tipo;
+import plp.imperativeExtendedI18N.util.ToStringProvider;
 
 public class TipoProcedimento implements Tipo {
 
@@ -47,7 +46,7 @@ public class TipoProcedimento implements Tipo {
 	}
 
 	public String getNome() {
-		return listToString(this.tiposParametrosFormais, "{", "}", ",");
+		return ToStringProvider.listToString(this.tiposParametrosFormais, "{", "}", ",");
 	}
 
 	public Tipo intersecao(Tipo outroTipo) {

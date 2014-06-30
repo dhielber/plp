@@ -1,13 +1,13 @@
 package plp.imperative2.declaration;
 
-import plp.expressions2.expression.Id;
-import plp.expressions2.memory.IdentificadorJaDeclaradoException;
-import plp.expressions2.memory.IdentificadorNaoDeclaradoException;
-import plp.imperative1.declaration.Declaracao;
-import plp.imperative1.memory.AmbienteCompilacaoImperativa;
-import plp.imperative1.memory.AmbienteExecucaoImperativa;
-import plp.imperative1.memory.EntradaVaziaException;
 import plp.imperative2.memory.AmbienteExecucaoImperativa2;
+import plp.imperativeExtendedI18N.declaration.Declaracao;
+import plp.imperativeExtendedI18N.expression.Id;
+import plp.imperativeExtendedI18N.memory.AmbienteCompilacaoImperativa;
+import plp.imperativeExtendedI18N.memory.AmbienteExecucaoImperativa;
+import plp.imperativeExtendedI18N.memory.EntradaVaziaException;
+import plp.imperativeExtendedI18N.memory.IdentificadorJaDeclaradoException;
+import plp.imperativeExtendedI18N.memory.IdentificadorNaoDeclaradoException;
 
 public class DeclaracaoProcedimento extends Declaracao {
 

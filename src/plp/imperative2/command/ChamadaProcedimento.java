@@ -1,21 +1,21 @@
 package plp.imperative2.command;
 
-import plp.expressions1.util.Tipo;
-import plp.expressions2.expression.Id;
-import plp.expressions2.memory.IdentificadorJaDeclaradoException;
-import plp.expressions2.memory.IdentificadorNaoDeclaradoException;
-import plp.expressions2.memory.VariavelJaDeclaradaException;
-import plp.expressions2.memory.VariavelNaoDeclaradaException;
-import plp.imperative1.command.Comando;
-import plp.imperative1.memory.AmbienteCompilacaoImperativa;
-import plp.imperative1.memory.AmbienteExecucaoImperativa;
-import plp.imperative1.memory.EntradaVaziaException;
-import plp.imperative1.memory.ErroTipoEntradaException;
-import plp.imperative1.memory.ListaValor;
 import plp.imperative2.declaration.DefProcedimento;
 import plp.imperative2.declaration.ListaDeclaracaoParametro;
 import plp.imperative2.memory.AmbienteExecucaoImperativa2;
 import plp.imperative2.util.TipoProcedimento;
+import plp.imperativeExtendedI18N.command.Comando;
+import plp.imperativeExtendedI18N.expression.Id;
+import plp.imperativeExtendedI18N.memory.AmbienteCompilacaoImperativa;
+import plp.imperativeExtendedI18N.memory.AmbienteExecucaoImperativa;
+import plp.imperativeExtendedI18N.memory.EntradaVaziaException;
+import plp.imperativeExtendedI18N.memory.ErroTipoEntradaException;
+import plp.imperativeExtendedI18N.memory.IdentificadorJaDeclaradoException;
+import plp.imperativeExtendedI18N.memory.IdentificadorNaoDeclaradoException;
+import plp.imperativeExtendedI18N.memory.ListaValor;
+import plp.imperativeExtendedI18N.memory.VariavelJaDeclaradaException;
+import plp.imperativeExtendedI18N.memory.VariavelNaoDeclaradaException;
+import plp.imperativeExtendedI18N.util.Tipo;
 
 public class ChamadaProcedimento implements Comando {
 

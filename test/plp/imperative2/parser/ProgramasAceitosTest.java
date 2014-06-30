@@ -13,14 +13,14 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import plp.expressions2.expression.ValorBooleano;
-import plp.expressions2.expression.ValorInteiro;
-import plp.imperative1.memory.AmbienteCompilacaoImperativa;
-import plp.imperative1.memory.ContextoCompilacaoImperativa;
-import plp.imperative1.memory.ListaValor;
 import plp.imperative2.Programa;
 import plp.imperative2.memory.AmbienteExecucaoImperativa2;
 import plp.imperative2.memory.ContextoExecucaoImperativa2;
+import plp.imperativeExtendedI18N.expression.ValorBooleano;
+import plp.imperativeExtendedI18N.expression.ValorInteiro;
+import plp.imperativeExtendedI18N.memory.AmbienteCompilacaoImperativa;
+import plp.imperativeExtendedI18N.memory.ContextoCompilacaoImperativa;
+import plp.imperativeExtendedI18N.memory.ListaValor;
 
 @RunWith(Parameterized.class)
 public class ProgramasAceitosTest {

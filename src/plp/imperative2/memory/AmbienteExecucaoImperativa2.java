@@ -1,8 +1,8 @@
 package plp.imperative2.memory;
 
-import plp.expressions2.expression.Id;
-import plp.imperative1.memory.AmbienteExecucaoImperativa;
 import plp.imperative2.declaration.DefProcedimento;
+import plp.imperativeExtendedI18N.expression.Id;
+import plp.imperativeExtendedI18N.memory.AmbienteExecucaoImperativa;
 
 public interface AmbienteExecucaoImperativa2 extends AmbienteExecucaoImperativa {
 

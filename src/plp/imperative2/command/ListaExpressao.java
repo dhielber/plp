@@ -3,14 +3,14 @@ package plp.imperative2.command;
 import java.util.LinkedList;
 import java.util.List;
 
-import plp.expressions1.util.Tipo;
-import plp.expressions2.expression.Expressao;
-import plp.expressions2.memory.VariavelJaDeclaradaException;
-import plp.expressions2.memory.VariavelNaoDeclaradaException;
-import plp.imperative1.memory.AmbienteCompilacaoImperativa;
-import plp.imperative1.memory.AmbienteExecucaoImperativa;
-import plp.imperative1.memory.ListaValor;
-import plp.imperative1.util.Lista;
+import plp.imperativeExtendedI18N.expression.Expressao;
+import plp.imperativeExtendedI18N.memory.AmbienteCompilacaoImperativa;
+import plp.imperativeExtendedI18N.memory.AmbienteExecucaoImperativa;
+import plp.imperativeExtendedI18N.memory.ListaValor;
+import plp.imperativeExtendedI18N.memory.VariavelJaDeclaradaException;
+import plp.imperativeExtendedI18N.memory.VariavelNaoDeclaradaException;
+import plp.imperativeExtendedI18N.util.Lista;
+import plp.imperativeExtendedI18N.util.Tipo;
 
 public class ListaExpressao extends Lista<Expressao> {
 

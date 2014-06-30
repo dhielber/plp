@@ -1,14 +1,13 @@
 package plp.imperative2;
 
-import plp.expressions2.memory.IdentificadorJaDeclaradoException;
-import plp.expressions2.memory.IdentificadorNaoDeclaradoException;
-import plp.imperative1.command.Comando;
-import plp.imperative1.memory.AmbienteCompilacaoImperativa;
-import plp.imperative1.memory.AmbienteExecucaoImperativa;
-import plp.imperative1.memory.EntradaVaziaException;
-import plp.imperative1.memory.ErroTipoEntradaException;
-import plp.imperative1.memory.ListaValor;
-import plp.orientadaObjetos1.excecao.execucao.EntradaNaoFornecidaException;
+import plp.imperativeExtendedI18N.command.Comando;
+import plp.imperativeExtendedI18N.memory.AmbienteCompilacaoImperativa;
+import plp.imperativeExtendedI18N.memory.AmbienteExecucaoImperativa;
+import plp.imperativeExtendedI18N.memory.EntradaVaziaException;
+import plp.imperativeExtendedI18N.memory.ErroTipoEntradaException;
+import plp.imperativeExtendedI18N.memory.IdentificadorJaDeclaradoException;
+import plp.imperativeExtendedI18N.memory.IdentificadorNaoDeclaradoException;
+import plp.imperativeExtendedI18N.memory.ListaValor;
 
 public class Programa {
 
