@@ -12,6 +12,7 @@ import plp.imperativeExtendedI18N.memory.EntradaVaziaException;
 import plp.imperativeExtendedI18N.memory.ErroTipoEntradaException;
 import plp.imperativeExtendedI18N.memory.IdentificadorJaDeclaradoException;
 import plp.imperativeExtendedI18N.memory.IdentificadorNaoDeclaradoException;
+import plp.imperativeExtendedI18N.memory.ImpressaoDataException;
 
 public interface Comando {
 
@@ -41,6 +42,6 @@ public interface Comando {
 	 */
 	boolean checaTipo(AmbienteCompilacaoImperativa ambiente)
 			throws IdentificadorJaDeclaradoException,
-			IdentificadorNaoDeclaradoException, EntradaVaziaException;
+			IdentificadorNaoDeclaradoException, EntradaVaziaException, ImpressaoDataException;
 
 }

@@ -61,7 +61,7 @@ public class ImperativeExtendedI18NParser {
             Programa programa = parser.Input();
             System.out.println("ImperativeExtendedI18N PLP Parser Version 0.0.1:  Imperativa2 program parsed successfully.");
             if(programa.checaTipo(new ContextoCompilacaoImperativa(entrada))) {
-                ListaValor saida = programa.executar(new ContextoExecucaoImperativa(entrada));
+                ListaValor saida = programa.executar(new ContextoExecucaoImperativa(Recursos.IDIOMA_PORTUGUES, entrada));
                 System.out.println(saida);
             }
             else {
@@ -128,7 +128,7 @@ TOKEN : /* TOKENS DE IMPERATIVA 1 */
 | < ELSE: "else" >
 }
 
-TOKEN : /* TOKENS DOS POSSÍVEIS TIPOS */
+TOKEN : /* TOKENS DOS TIPOS */
 {
   < INT : "int" >
 | < BOOLEAN  : "boolean" >
@@ -165,8 +165,7 @@ TOKEN : /* LITERALS */
       "\""
   >
 |
-<FLOAT_LITERAL: (["0"-"9"])+ "." (["0"-"9"])+ >
-
+  < FLOAT_LITERAL: (["0"-"9"])+ "." (["0"-"9"])+ >
 }
 
 TOKEN : /* IDENTIFIERS */
@@ -177,7 +176,6 @@ TOKEN : /* IDENTIFIERS */
       [
        "\u0024",
        "\u0041"-"\u005a",
-       "\u005f",
        "\u0061"-"\u007a",
        "\u00c0"-"\u00d6",
        "\u00d8"-"\u00f6",
@@ -344,21 +342,21 @@ Write PWrite() :
 
 WriteD PWriteD() :
 {
-	ValorDataL val;
+	Expressao exp = null;
 	ValorString tipoData;
 }
 {	<WRITED>
 	  	<LPAREN>
-	  		val = PValorDataL()
-		<COMMA>
-		<STRING_LITERAL>
-		{
-			String tokenStr = token.toString();
-			tokenStr = tokenStr.substring(1,tokenStr.length()-1);
-			tipoData = new ValorString(tokenStr);
-		}
+	  		(	  		  LOOKAHEAD(PValorDataL())
+	  			exp = PValorDataL()
+	  			|
+	  			LOOKAHEAD(PId())
+	  			exp = PId() 
+	  		) 
+		<COMMA>		
+		  	tipoData = PTipoData()		
 	    <RPAREN>
-	{return new WriteD(val, tipoData);}
+	{return new WriteD(exp, tipoData);}
 }
 
 IfThenElse PIfThenElse() :
@@ -476,6 +474,19 @@ Valor PValorStringL() :
 	}
 }
 
+ValorString PTipoData() :
+{
+	Token token;
+}
+{
+	token = <STRING_LITERAL>
+	{
+		String tokenStr = token.toString();
+		tokenStr = tokenStr.substring(1,tokenStr.length()-1);
+		return new ValorString(tokenStr);
+	}
+}
+
 ValorDataL PValorDataL() :
 {
 	ValorInteiro dia;
@@ -483,7 +494,7 @@ ValorDataL PValorDataL() :
 	ValorInteiro ano;
 }
 {
-	token = <LPAREN>
+	token = <LBRACKET>
 				<INTEGER_LITERAL>
 				{				  
 					dia = new ValorInteiro(Integer.parseInt(token.toString()));
@@ -498,7 +509,7 @@ ValorDataL PValorDataL() :
 				{
 					ano = new ValorInteiro(Integer.parseInt(token.toString()));
 				}
-			<RPAREN>
+			<RBRACKET>
 	{
 		return new ValorDataL(dia, mes, ano);
 	}
@@ -515,6 +526,7 @@ Valor PValor() :
 		| retorno = PValorString()
 		| retorno = PValorStringL()
 		| retorno = PValorFloat()
+		| retorno = PValorDataL()
     )
 	
 	{
@@ -765,10 +777,58 @@ DeclaracaoVariavel PDeclaracaoVariavel() :
 	Id id;
 	Expressao exp;
 	DeclaracaoVariavel retorno;
+	Tipo tipo;
 }
 {
-	 <VAR> id = PId() <ASSIGN> exp = PExpressao() 
-	   	{retorno = new DeclaracaoVariavel(id, exp);}
+	 tipo = PTipoPrimitivo() id = PId() <ASSIGN> exp = PExpressao() 
+	   	{retorno = new DeclaracaoVariavel(tipo, id, exp);}
+	{
+		return retorno;
+	}
+}
+
+Tipo PTipoPrimitivo() :
+{
+    Tipo retorno;
+}
+{
+	(
+	      LOOKAHEAD(<INT>)
+		       <INT>
+		       {
+		       		retorno = TipoPrimitivo.INTEIRO;
+		       }
+
+	     | LOOKAHEAD(<BOOLEAN>)
+        	   <BOOLEAN>
+		       {
+		       		retorno = TipoPrimitivo.BOOLEANO;
+		       }
+
+	     | LOOKAHEAD(<STRING>)
+	     		<STRING>
+	       		{
+	       			retorno = TipoPrimitivo.STRING;
+	       		}	       		
+
+	     | LOOKAHEAD(<STRINGL>)
+	     		<STRINGL>
+	       		{
+		       		retorno = TipoPrimitivo.STRINGL;
+		        }		        
+
+	     | LOOKAHEAD(<DATAL>)
+	     		<DATAL>
+	       		{
+	       			retorno = TipoPrimitivo.DATAL;
+	       		}
+
+	     | LOOKAHEAD(<FLOAT>)
+	     		<FLOAT>
+	       		{
+	       			retorno = TipoPrimitivo.FLOAT;
+	       		}
+	)
 	{
 		return retorno;
 	}

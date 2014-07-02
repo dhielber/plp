@@ -24,9 +24,9 @@ public class Write implements IO {
 	 *         <code>write</code>.
 	 * 
 	 */
-	public AmbienteExecucaoImperativa executar(
-			AmbienteExecucaoImperativa ambiente)
+	public AmbienteExecucaoImperativa executar(AmbienteExecucaoImperativa ambiente)
 			throws VariavelJaDeclaradaException, VariavelNaoDeclaradaException {
+		
 		ambiente.write(expressao.avaliar(ambiente));
 		return ambiente;
 	}

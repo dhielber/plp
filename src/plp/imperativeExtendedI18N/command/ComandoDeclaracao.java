@@ -30,10 +30,9 @@ public class ComandoDeclaracao implements Comando {
 	 * @throws ErroTipoEntradaException 
 	 * 
 	 */
-	public AmbienteExecucaoImperativa executar(
-			AmbienteExecucaoImperativa ambiente)
-			throws IdentificadorJaDeclaradoException,
-			IdentificadorNaoDeclaradoException, EntradaVaziaException, ErroTipoEntradaException {
+	public AmbienteExecucaoImperativa executar(AmbienteExecucaoImperativa ambiente)
+			throws IdentificadorJaDeclaradoException, IdentificadorNaoDeclaradoException, 
+				   EntradaVaziaException, ErroTipoEntradaException {
 		ambiente.incrementa();
 		ambiente = comando.executar(declaracao.elabora(ambiente));
 		ambiente.restaura();
@@ -46,11 +45,11 @@ public class ComandoDeclaracao implements Comando {
 	 */
 	public boolean checaTipo(AmbienteCompilacaoImperativa ambiente)
 			throws IdentificadorJaDeclaradoException,
-			IdentificadorNaoDeclaradoException, EntradaVaziaException {
+				   IdentificadorNaoDeclaradoException, EntradaVaziaException {
+		
 		boolean resposta;
 		ambiente.incrementa();
-		resposta = declaracao.checaTipo(ambiente)
-				&& comando.checaTipo(ambiente);
+		resposta = declaracao.checaTipo(ambiente) && comando.checaTipo(ambiente);
 		ambiente.restaura();
 		return resposta;
 	}

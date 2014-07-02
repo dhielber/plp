@@ -28,6 +28,13 @@ public class ExpSub extends ExpBinaria {
 	 * Retorna o valor da Expressao de Subtracao.
 	 */
 	public Valor avaliar(AmbienteExecucao amb) throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException {
+		
+		if(getEsq().avaliar(amb) instanceof ValorFloat && getDir().avaliar(amb) instanceof ValorFloat){		
+			return new ValorFloat(
+				((ValorFloat) getEsq().avaliar(amb)).valor() +
+				((ValorFloat) getDir().avaliar(amb)).valor());
+		}
+		
 		return new ValorInteiro(
 				((ValorInteiro)getEsq().avaliar(amb)).valor() -
 				((ValorInteiro)getDir().avaliar(amb)).valor()
@@ -47,7 +54,9 @@ public class ExpSub extends ExpBinaria {
 	 */
 	protected boolean checaTipoElementoTerminal(AmbienteCompilacao ambiente)
 			throws VariavelNaoDeclaradaException,VariavelJaDeclaradaException {
-		return (getEsq().getTipo(ambiente).eInteiro() && getDir().getTipo(ambiente).eInteiro());
+		return (getEsq().getTipo(ambiente).eInteiro() && getDir().getTipo(ambiente).eInteiro()
+				|| 
+				getEsq().getTipo(ambiente).eFloat() && getDir().getTipo(ambiente).eFloat());
 	}
 
 	/**
@@ -57,6 +66,10 @@ public class ExpSub extends ExpBinaria {
 	 * @return os tipos possiveis desta expressao.
 	 */
 	public Tipo getTipo(AmbienteCompilacao ambiente) {
+		if(getEsq().getTipo(ambiente).eIgual(TipoPrimitivo.FLOAT) && getDir().getTipo(ambiente).eIgual(TipoPrimitivo.FLOAT)){
+			return TipoPrimitivo.FLOAT;
+		}
+		
 		return TipoPrimitivo.INTEIRO;
 	}
 	

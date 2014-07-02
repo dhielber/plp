@@ -20,9 +20,11 @@ import plp.imperativeExtendedI18N.expression.ValorBooleano;
 import plp.imperativeExtendedI18N.expression.ValorInteiro;
 import plp.imperativeExtendedI18N.memory.AmbienteCompilacaoImperativa;
 import plp.imperativeExtendedI18N.memory.AmbienteExecucaoImperativa;
+import plp.imperativeExtendedI18N.memory.Contexto;
 import plp.imperativeExtendedI18N.memory.ContextoCompilacaoImperativa;
 import plp.imperativeExtendedI18N.memory.ContextoExecucaoImperativa;
 import plp.imperativeExtendedI18N.memory.ListaValor;
+import plp.imperativeExtendedI18N.memory.Recursos;
 import plp.imperativeExtendedI18N.parser.ImperativeExtendedI18NParser;
 
 
@@ -72,8 +74,7 @@ public class CaixaPretaIMP1Test {
 					tipoOK, is(this.aceitoTipo));
 
 			if (tipoOK){
-				AmbienteExecucaoImperativa ambExec = new ContextoExecucaoImperativa(
-						entrada);
+				AmbienteExecucaoImperativa ambExec = new ContextoExecucaoImperativa(Recursos.IDIOMA_INGLES, entrada);
 				String valor = programa.executar(ambExec).toString();
 				boolean valorOK = valor.equalsIgnoreCase(resultado);                   
 				assertThat("Resultado errado para a avaliação de:\n" + input, valorOK, is(this.aceitoValor));

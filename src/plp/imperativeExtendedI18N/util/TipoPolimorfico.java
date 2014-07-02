@@ -42,11 +42,6 @@ public class TipoPolimorfico implements Tipo {
 	public TipoPolimorfico() {
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see plp.expressions1.util.Tipo#getNome()
-	 */
 	public String getNome() {
 		String nome = "?";
 		if (ehCoringa()) {
@@ -65,31 +60,28 @@ public class TipoPolimorfico implements Tipo {
 		return this.tipoInstanciado;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see plp.expressions1.util.Tipo#eInteiro()
-	 */
 	public boolean eInteiro() {
 		return this.eIgual(TipoPrimitivo.INTEIRO);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see plp.expressions1.util.Tipo#eBooleano()
-	 */
+	public boolean eFloat() {
+		return this.eIgual(TipoPrimitivo.FLOAT);
+	}
+
 	public boolean eBooleano() {
 		return this.eIgual(TipoPrimitivo.BOOLEANO);
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see plp.expressions1.util.Tipo#eString()
-	 */
+	
 	public boolean eString() {
 		return this.eIgual(TipoPrimitivo.STRING);
+	}
+
+	public boolean eStringL() {
+		return this.eIgual(TipoPrimitivo.STRINGL);
+	}
+
+	public boolean eDataL() {
+		return this.eIgual(TipoPrimitivo.DATAL);
 	}
 
 	public boolean eIgual(Tipo tipo) {

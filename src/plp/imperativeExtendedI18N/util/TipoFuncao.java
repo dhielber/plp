@@ -78,9 +78,21 @@ public class TipoFuncao implements Tipo {
 	public boolean eInteiro() {
 		return imagem.eInteiro();
 	}
+	
+	public boolean eFloat() {
+		return imagem.eFloat();
+	}
 
 	public boolean eString() {
 		return imagem.eString();
+	}
+
+	public boolean eStringL() {
+		return imagem.eStringL();
+	}
+
+	public boolean eDataL() {
+		return imagem.eDataL();
 	}
 
 	public boolean eValido() {

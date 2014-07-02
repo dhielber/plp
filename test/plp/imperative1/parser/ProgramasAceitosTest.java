@@ -18,9 +18,11 @@ import plp.imperativeExtendedI18N.expression.ValorBooleano;
 import plp.imperativeExtendedI18N.expression.ValorInteiro;
 import plp.imperativeExtendedI18N.memory.AmbienteCompilacaoImperativa;
 import plp.imperativeExtendedI18N.memory.AmbienteExecucaoImperativa;
+import plp.imperativeExtendedI18N.memory.Contexto;
 import plp.imperativeExtendedI18N.memory.ContextoCompilacaoImperativa;
 import plp.imperativeExtendedI18N.memory.ContextoExecucaoImperativa;
 import plp.imperativeExtendedI18N.memory.ListaValor;
+import plp.imperativeExtendedI18N.memory.Recursos;
 import plp.imperativeExtendedI18N.parser.ImperativeExtendedI18NParser;
 
 @RunWith(Parameterized.class)
@@ -60,8 +62,7 @@ public class ProgramasAceitosTest {
 		assertThat("Erro de Tipo no programa: \n" + input, programa
 				.checaTipo(ambComp), is(true));
 
-		AmbienteExecucaoImperativa ambExec = new ContextoExecucaoImperativa(
-				entrada);
+		AmbienteExecucaoImperativa ambExec = new ContextoExecucaoImperativa(Recursos.IDIOMA_INGLES, entrada);
 		assertThat("Resultado errado para a avaliação de:\n" + input, programa
 				.executar(ambExec).toString(), is(saidaExperada));
 	}

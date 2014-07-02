@@ -13,11 +13,6 @@ public class ValorStringL extends ValorConcreto<String> {
 	public Tipo getTipo(AmbienteCompilacao amb) {
 		return TipoPrimitivo.STRINGL;
 	}
-
-	@Override
-	public String toString() {
-		return String.format("\"%s\"", super.toString());
-	}
 	
 	public ValorString clone() {
 		return new ValorString(this.valor());

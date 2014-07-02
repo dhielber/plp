@@ -1,5 +1,6 @@
 package plp.imperativeExtendedI18N.memory;
 
+import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Stack;
 
@@ -12,18 +13,22 @@ import plp.imperativeExtendedI18N.expression.Id;
  * 
  */
 public class Contexto<T> {
-	/**
-	 * A pilhaValor de blocos de contexto.
-	 */
+		
 	protected Stack<HashMap<Id, T>> pilha;
+	
+	protected RecursosString recursosString;
+	
+	protected RecursosFloat recursosFloat;	
 
-	/**
-	 * Construtor da classe.
-	 */
+	protected RecursosData recursosData;
+
 	public Contexto() {
 		pilha = new Stack<HashMap<Id, T>>();
+		recursosString = new RecursosString();
+		recursosFloat = new RecursosFloat();
+		recursosData = new RecursosData();
 	}
-
+	
 	public void incrementa() {
 		pilha.push(new HashMap<Id, T>());
 	}
@@ -32,12 +37,6 @@ public class Contexto<T> {
 		pilha.pop();
 	}
 
-	/**
-	 * Mapeia o id no valor dado.
-	 * 
-	 * @exception VariavelJaDeclaradaException
-	 *                se já existir um mapeamento do identificador nesta tabela.
-	 */
 	public void map(Id idArg, T valorId) throws VariavelJaDeclaradaException {
 		try {
 			HashMap<Id, T> aux = pilha.peek();
@@ -48,13 +47,6 @@ public class Contexto<T> {
 		}
 	}
 
-	/**
-	 * Retorna o valor mapeado ao id dado.
-	 * 
-	 * @exception VariavelNaoDeclaradaException
-	 *                se não existir nenhum valor mapeado ao id dado nesta
-	 *                tabela.
-	 */
 	public T get(Id idArg) throws VariavelNaoDeclaradaException {
 		try {
 			T result = null;
@@ -76,42 +68,23 @@ public class Contexto<T> {
 		}
 	}
 
-	/**
-	 * Returns the pilhaValor.
-	 * 
-	 * @return Stack
-	 */
 	protected Stack<HashMap<Id, T>> getPilha() {
 		return pilha;
 	}
 
-	/**
-	 * Sets the pilhaValor.
-	 * 
-	 * @param pilha
-	 *            The pilhaValor to set
-	 */
 	protected void setPilha(Stack<HashMap<Id, T>> pilha) {
 		this.pilha = pilha;
 	}
 
-	/*
-	public Contexto<Valor> clone(){
-		Contexto<Valor> retorno = new Contexto<Valor>();
-		
-		Stack<HashMap<Id, Valor>> novaPilha = new Stack<HashMap<Id, Valor>>();
-		
-		for (HashMap<Id, T> map : this.pilha){
-			HashMap<Id, Valor> novoMap = new HashMap<Id, Valor>();
-			
-			for(Entry<Id, T> entry : map.entrySet()){
-				novoMap.put(entry.getKey().clone(),
-						((Valor) entry.getValue()).clone());
-			}
-			
-			novaPilha.add(novoMap);
-		}
-		
-		return retorno;
-	}*/
+	public RecursosString getRecursosString() {
+		return recursosString;
+	}
+
+	public RecursosFloat getRecursosFloat() {
+		return recursosFloat;
+	}
+	
+	public RecursosData getRecursosData() {
+		return recursosData;
+	}
 }
